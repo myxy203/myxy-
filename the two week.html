@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <title>第二周</title>
+  <style>
+  .up{
+  height:60px;
+  border:1px solid black;
+  font-family:楷书;
+  font-size:2em;
+  padding:10px;
+  background:#8E8E8E;
+  }
+  .black{
+  display:inline-block;
+  height:100%;
+  width:49%;
+  color:black;
+  text-align:right;
+  background:white;
+  }
+  .white{
+  display:inline-block;
+  height:100%;
+  width:50%;
+  color:white;
+  text-align:left;
+  background:black;
+  }
+  .ps{
+  margin:10px;
+  border:1px solid;
+  font-size:1.2em;
+  }
+  .black1{
+  display:inline-block;
+  height:400px;
+  width:49%;
+  background:black;
+  color:white;
+  text-align:center;
+  line-height:400px;
+  font-size:1em;
+  }
+  .white1{
+  border:1px solid;
+  display:inline-block;
+  height:400px;
+  width:50%;
+  background:white;
+  color:black;
+  text-align:center;
+  line-height:400px;
+  font-size:1em;
+  }
+  </style>
+ </head>
+ <body>
+  <div class="up">
+  <div class="black">非黑</div>
+  <div class="white">是白</div>
+  </div>
+  <div class="ps">游戏说明：点击开始按钮，系统会随机生成一个范围在0到100的数字，通过黑白两块区域的提示，猜出这个数字吧，注意标题哦！</div>
+  <div class="black1" id="b">游戏未开始</div>
+  <div class="white1" id="w">游戏未开始</div>
+  <button onclick="start()">开始</button>
+  <input type="text" value="输入猜想值" id="v">
+  <button onclick="end()">提交</button>
+  <script>
+  var i=parseInt(Math.random()*100);
+  var j=parseInt(Math.random()*100);
+  var b=document.getElementById('b');
+  var w=document.getElementById('w');
+  function start(){
+    if(i>=j){
+		b.innerHTML="数字比"+j+"要小。";
+	}
+	else{
+		b.innerHTML="数字不比"+j+"要小。";
+	}
+    var a=i%10;
+    w.innerHTML="个位数是"+a;
+  }
+  function end(){
+   var v=document.getElementById('v').value;
+   if(v==i){
+	   alert("恭喜，回答正确！");
+   }
+   else{
+	   alert("很遗憾错了。")
+   }
+  }
+  </script>
+ </body>
+</html>
