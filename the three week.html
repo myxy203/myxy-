@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>第三周</title>
+  <style>
+  .card{
+  border:5px solid black;
+  width:15%;
+  height:300px;
+  float:left;
+  margin:1%;
+  }
+  .angel{
+  border:3px solid gold;
+  color:gold;
+  margin:5%;
+  height:90%;
+  text-align:center;
+  line-height:700%;
+  font-size:2em;
+  }
+  .demon{
+  border:3px solid black;
+  color:black;
+  margin:5%;
+  height:90%;
+  text-align:center;
+  line-height:700%;
+  font-size:2em;
+  }
+  .human{
+  border:3px solid red;
+  color:red;
+  margin:5%;
+  height:90%;
+  text-align:center;
+  line-height:700%;
+  font-size:2em;
+  }
+  .base{
+  position:fixed;
+  bottom:0;
+  left:0;
+  border:1px solid black;
+  width:100%;
+  height:200px;
+  font-size:2em;
+  text-align:center;
+  line-height:150%;
+  }
+  </style>
+ </head>
+ <body onload="load()">
+  <h1 style="text-align:center;border:5px solid;padding:20px;">
+  天使与恶魔与人
+  </h1>
+  <div class="card"><div class="angel">天使</div></div>
+  <div class="card"><div class="demon">恶魔</div></div>
+  <div class="card"><div class="human">人</div></div>
+  <p style="font-size:2em;text-align:center;">游戏内侧中，快充钱！！！</p>
+  <div style="width:45%;float:right;border:1px solid;height:250px;"align="center">
+  <button style="width:30%;height:60px;font-size:1em;margin:3%;"onclick="start()">开始游戏</button>
+  <button style="width:30%;height:60px;font-size:1em;margin:3%;"onclick="levelup()">升级</button>
+  <button style="width:30%;height:60px;font-size:1em;margin:3%;color:red;"onclick="fight()">我的回合！</button>
+  <select style="width:30%;"id="select">
+		<option value="1">一级天使卡</option>
+		<option value="4">一级恶魔卡</option>
+		<option value="7">一级人类卡</option>
+		<option value="11">二级天使卡</option>
+		<option value="12">二级恶魔卡</option>
+		<option value="13">二级人类卡</option>
+		<option value="21">三级天使卡</option>
+		<option value="22">三级恶魔卡</option>
+		<option value="23">三级人类卡</option>
+  </select>
+  </div>
+  <div class="base" id="game">游戏未开始</div>
+  <script>
+  function load(){
+  confirm("规则：在本游戏中，天使可以镇压恶魔，恶魔可以蛊惑人，人可以诱杀天使，形成一个相互克制的关系。一共有9张卡牌，每类三张，相同卡牌每两张合成一张二级卡牌，相同卡牌每三张合成一张三级卡牌。开局玩家会随机获取4张不同的卡牌，与对手对决，第一盘获胜者将会额外获得一张卡牌。高级别卡牌直接克制低级别卡牌，三局两胜制。");
+  }
+  var card=[1,2,3,4,5,6,7,8,9];
+  var gamer=[];
+  var rand=[];
+  var randNum=4;
+  var ran = Math.floor(Math.random() * card.length);
+  rand.push(card.splice(ran, 1)[0]);
+  //alert(rand);
+  for(var i=0;i<randNum;i++){
+	 ran = Math.floor(Math.random() * card.length);
+	 gamer.push(card.splice(ran, 1)[0]);
+  }
+  //alert(gamer);
+  //alert(card);
+	var a=0;
+	var b=0;
+	var c=0;
+	var a2=0;
+	var b2=0;
+	var c2=0;
+	var a3=0;
+	var b3=0;
+	var c3=0;
+	let invoked=false;
+	var game=document.getElementById("game");
+	for(var i=0;i<gamer.length;i++){
+		if(gamer[i]>0 && gamer[i]<4){
+		a++;
+		}
+		else if(gamer[i]>3 && gamer[i]<7){
+		b++;
+		}
+		else if(gamer[i]>6 &&gamer[i]<10){
+		c++;
+		}
+	}
+    function start(){
+		if(!invoked){
+		game.innerHTML='一级：拥有天使卡：'+a+';拥有恶魔卡：'+b+';拥有人类卡：'+c+'<br>二级：拥有天使卡：'+a2+';拥有恶魔卡：'+b2+';拥有人类卡：'+c2+'<br>三级：拥有天使卡：'+a3+';拥有恶魔卡：'+b3+';拥有人类卡：'+c3;
+		invoked=true;
+		}
+  }
+  function levelup(){
+		var ready=confirm("该游戏暂时只支持自动升级，是否自动升级？");
+		if(ready==true){
+			if(a==2){
+				a-=2;
+				a2++;
+			}
+			else if(a==3){
+				a-=3;
+				a3++;
+			}
+			if(b==2){
+				b-=2;
+				b2++;
+			}
+			else if(b==3){
+				b-=3;
+				b3++;
+			}
+			if(c==2){
+				c-=2;
+				c2++;
+			}
+			else if(c==3){
+				c-=3;
+				c3++;
+			}
+			invoked=false;
+			start();
+		}
+		 alert("注意：如果选择库没有的卡牌视作弃权！");
+
+  }
+  var oa=0,ob=0,oc=0;
+  var oa2=0,ob2=0,oc2=0;
+  var oa3=0,ob3=0,oc3=0;
+  for(var i=0;i<card.length;i++){
+		if(card[i]>0 && card[i]<4){
+		oa++;
+		}
+		else if(card[i]>3 && card[i]<7){
+		ob++;
+		}
+		else if(card[i]>6 &&card[i]<10){
+		oc++;
+		}
+	}
+	if(oa==2){
+				oa-=2;
+				oa2=11;
+			}
+	else if(oa==3){
+				oa-=3;
+				oa3=21;
+			}
+	if(ob==2){
+				ob-=2;
+				ob2=12;
+			}
+	else if(ob==3){
+				ob-=3;
+				ob3=22;
+			}
+	if(oc==2){
+				oc-=2;
+				oc2=13;
+			}
+	else if(oc==3){
+				oc-=3;
+				oc3=23;
+			}
+	if(ob==1){
+		ob=4;
+	}
+	if(oc==1){
+		oc=7;
+	}
+	var op=[oa,ob,oc,oa2,ob2,oc2,oa3,ob3,oc3];
+	  //alert(op);
+	  var x=0;
+	  var y=0;
+  function fight(){
+		y++;
+		var ran1=0;
+		while(!ran1){
+		ran1 = Math.floor(Math.random() * op.length);
+		}
+		var my=document.getElementById("select").value;
+		if(my==1){
+			if(a==0){
+				alert("库中暂无。");
+			}
+			else{
+			a--;
+			if(my==ran1){
+				alert("平局。");
+			}
+			else if(my>ran1){
+				alert("win");
+				x++;
+			}
+			else{
+				alert("lose");
+			}
+			}
+		}
+		if(my==4){
+			if(b==0){
+				alert("库中暂无。");
+			}
+			else{
+			b--;
+			if(my==ran1){
+				alert("平局。");
+			}
+			else if(my>ran1){
+				alert("win");
+				x++;
+			}
+			else{
+				alert("lose");
+			}
+			}
+		}
+		if(my==7){
+			if(c==0){
+				alert("库中暂无。");
+			}
+			else{
+			c--;
+			if(my==ran1){
+				alert("平局。");
+			}
+			else if(my>ran1){
+				alert("win");
+				x++;
+			}
+			else{
+				alert("lose");
+			}
+			}
+		}
+		if(my==11){
+			if(a2==0){
+				alert("库中暂无。");
+			}
+			else{
+			a2--;
+			if(my==ran1){
+				alert("平局。");
+			}
+			else if(my>ran1){
+				alert("win");
+				x++;
+			}
+			else{
+				alert("lose");
+			}
+			}
+		}
+		if(my==12){
+			if(b2==0){
+				alert("库中暂无。");
+			}
+			else{
+			b2--;
+			if(my==ran1){
+				alert("平局。");
+			}
+			else if(my>ran1){
+				alert("win");
+				x++;
+			}
+			else{
+				alert("lose");
+			}
+			}
+		}
+		if(my==13){
+			if(c2==0){
+				alert("库中暂无。");
+			}
+			else{
+			c2--;
+			if(my==ran1){
+				alert("平局。");
+			}
+			else if(my>ran1){
+				alert("win");
+				x++;
+			}
+			else{
+				alert("lose");
+			}
+			}
+		}
+		if(my==21){
+			if(a3==0){
+				alert("库中暂无。");
+			}
+			else{
+			a3--;
+			if(my==ran1){
+				alert("平局。");
+			}
+			else if(my>ran1){
+				alert("win");
+				x++;
+			}
+			else{
+				alert("lose");
+			}
+			}
+		}
+		if(my==22){
+			if(b3==0){
+				alert("库中暂无。");
+			}
+			else{
+			b3--;
+			if(my==ran1){
+				alert("平局。");
+			}
+			else if(my>ran1){
+				alert("win");
+				x++;
+			}
+			else{
+				alert("lose");
+			}
+			}
+		}
+		if(my==23){
+			if(c3==0){
+				alert("库中暂无。");
+			}
+			else{
+			c3--;
+			if(my==ran1){
+				alert("平局。");
+			}
+			else if(my>ran1){
+				alert("win");
+				x++;
+			}
+			else{
+				alert("lose");
+			}
+			}
+		}
+		invoked=false;
+		start();
+		if(y==3){
+			if(x>=2){
+			alert("你赢了，我的宝");
+			}
+			else{
+			alert("loser,no!no!no!");
+			}
+		}
+  }
+  </script>
+ </body>
+</html>
