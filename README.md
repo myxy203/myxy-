@@ -7,7 +7,7 @@
 
 ****
 
-![magic](https://github-readme-stats.vercel.app/api?username=myxy203)
+![magic](https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wHfX?ver=33ae)
 ![magic](https://github-readme-stats.vercel.app/api/top-langs/?username=myxy203&layout=compact&langs_count=8)
 
 ## ***记录，为了更好的自己***
