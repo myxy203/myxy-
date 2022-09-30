@@ -5,9 +5,10 @@
 >[作业目录](https://myxy203.github.io/%E9%A6%96%E9%A1%B5.html)<br>
 >[FGO游戏网页实验](https://myxy203.github.io/Fate2.1.html)
 ****
+![magic](https://github-readme-stats.vercel.app/api?username=myxy203)
 <div  align="right">
 <span>  </span>
-![magic]("https://github-readme-stats.vercel.app/api?username=myxy203")<span>    </span><img height="170px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=myxy203&layout=compact&langs_count=8" />
+<span>    </span><img height="170px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=myxy203&layout=compact&langs_count=8" />
 <span>  </span>
 </div>
 
