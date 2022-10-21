@@ -26,62 +26,130 @@
 	}
 	</style>
  </head>
- <body onload="upload(str1)">
+ <body onload="fulished()">
   <div class="search" id="sc">
   浏览时间：0秒
   </div>
-  <div style="border:1px solid;width:50%;padding:2%;float:left;">
+  <div style="border:1px solid;width:55%;padding:2%;float:left;">
     <h1>这几分钟，稍微休息一下吧~</h1> 
     <IMG src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wwtR?ver=4d2d" style="width:100%;height:80%;">
  </div>
  <div style="display:inline-block;;width:30%;border:1px solid;height:500px;margin:4%;">
-   <div style="width:90%;height:94%;border:1px solid;margin:4%;border-style:double;border-width:4px;font-size:2em;letter-spacing:5px;color:#00E3E3;align:center;" id ="book">
-		
+   <div style="width:90%;height:94%;border:1px solid;margin:4%;border-style:double;border-width:4px;font-size:2em;letter-spacing:5px;color:#00E3E3;text-align:center;"align="center;" id ="book">
+		<div id="first" style="display:inline-block">暂无1</div><div id="note" style="display:inline-block">+</div><div id="second" style="display:inline-block">暂无2</div>=
+		<div style="border:1px solid;width:60%;margin:auto;height:90%;">
+		<button style="width:60%;margin:auto;margin-top:10%;height:15%;font-size:0.7em;" id="selectA" onClick="op(this.id)";>A.</button>
+		<button style="width:60%;margin:auto;margin-top:10%;height:15%;font-size:0.7em;" id="selectB" onClick="op(this.id)";>B.</button>
+		<button style="width:60%;margin:auto;margin-top:10%;height:15%;font-size:0.7em;" id="selectC" onClick="op(this.id)";>C.</button>
+		<button style="width:60%;margin:auto;margin-top:10%;height:15%;font-size:0.7em;" id="selectD" onClick="op(this.id)";>D.</button>
+		<div Style="margin-top:7%;"id="win">连胜：</div>
+		</div>
    </div>
  </div>
  <script>
 	var book = document.getElementById("book");
-	var str1="如果知道结局，你还会开始这一趟旅途吗？";
-	var str2="乌云过后的晴天，会很美。";
-	var str3="静下心来，感受世界的那份宁静的美吧！";
-	var i=1;		
-	book.style.opacity=1;
-	function upload(a){
-		book.innerHTML=a;
-		if(book.style.opacity==1){
-		time=setInterval(function(){
-		book.style.opacity-=0.1;
-		if(book.style.opacity==0){
-		clearInterval(time);
-			if(i<3){
-				i++;
-				if(i==2){
-				var s=str2;}
-				else{
-				var s=str3;
-				}
-		upload(s);}
-		
-		else{
-		i=1;
-		if(i==1)
-			{var s=str1;}
-		upload(s);
+	var f=document.getElementById("first");
+	var s=document.getElementById("second");
+	var n=document.getElementById("note");
+	var a=document.getElementById("selectA");
+	var b=document.getElementById("selectB");
+	var c=document.getElementById("selectC");
+	var d=document.getElementById("selectD");
+	var zhuan=0;
+	function fulished(){
+		var real=Math.floor(Math.random()*4+1);
+		zhuan=real;
+		var f1=Math.floor(Math.random()*100+1);
+		f.textContent=f1;
+		var s1=Math.floor(Math.random()*100+1);
+		s.textContent=s1;
+		var n1=Math.floor(Math.random()*4+1);
+		var t=0;
+		switch(n1){
+			case 1:
+				n.innerHTML=" + ";
+				t=f1+s1;
+				break;
+			case 2:
+				n.innerHTML=" - ";
+				t=f1-s1;
+				break;
+			case 3:
+				n.innerHTML=" * ";
+				t=f1*s1;
+				break;
+			case 4:
+				n.innerHTML=" / ";
+				t=f1/s1;
+				break;
+			default:
+				n.innerHTML="错误！";
+				break;
 		}
+		switch(real){
+			case 1: 
+				a.innerHTML="A."+t;
+				b.innerHTML="B."+Math.floor((Math.random()*100+t));
+				c.innerHTML="C."+Math.floor((Math.random()*100+t));
+				d.innerHTML="D."+Math.floor((Math.random()*100+t));
+				break;
+			case 2:
+				a.innerHTML="A."+Math.floor((Math.random()*100+t));
+				b.innerHTML="B."+t;
+				c.innerHTML="C."+Math.floor((Math.random()*100+t));
+				d.innerHTML="D."+Math.floor((Math.random()*100+t));
+				break;
+			case 3:
+				a.innerHTML="A."+Math.floor((Math.random()*100+t));
+				b.innerHTML="B."+Math.floor((Math.random()*100+t));
+				c.innerHTML="C."+t;
+				d.innerHTML="D."+Math.floor((Math.random()*100+t));
+				break;
+			case 4:
+				a.innerHTML="A."+Math.floor((Math.random()*100+t));
+				b.innerHTML="B."+Math.floor((Math.random()*100+t));
+				c.innerHTML="C."+Math.floor((Math.random()*100+t));
+				d.innerHTML="D."+t;
+				break;
+			default:
+				break;
+				
 		}
-		},1000);
-		}
-		else{
-		times=setInterval(function (){
-		book.style.opacity+=1;
-	if(book.style.opacity==1){
-			
-			clearInterval(times);
-			upload(a);
-		}
-		},2000);
-		}
+			var w=document.getElementById("win");
+			w.innerHTML="连胜："+n2+"场";
 	}
+	var n2=0;
+
+	function op(clicked_id){
+			var o=clicked_id;
+			if(o=="selectA"&& zhuan==1){
+				alert("Great!");
+				n2++;
+				fulished();
+			}
+			else if(o=="selectB"&& zhuan==2){
+				alert("Nice!");
+				n2++;
+				fulished();
+			}
+			else if(o=="selectC"&& zhuan==3){
+				alert("Perfect!");
+				n2++;
+				fulished();
+			}
+			else if(o=="selectD"&& zhuan==4){
+				alert("Good!");
+				n2++;
+				fulished();
+			}
+			else{
+				alert("Regret!");
+				n2=0;
+				fulished();
+			}
+		
+		}
+	
 	var sc =document.getElementById("sc");
 	var q=0;
 	setInterval(function(){
