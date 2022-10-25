@@ -128,15 +128,18 @@
 	height:90%;
 	float:right;
 	display:inline-block;
-	background:url(image/tengwanlixiang.png);
+	background-image:url(image/tengwanlixiang.png);
 	background-size:100%;
+	}
+	.fa-refresh:hover{
+	color:red;
 	}
   </style>
  </head>
  <body>
   <div class="search">
 	Fate Grand Order
-	<i class="fa fa-spin fa-music"style="float:right;position:absolute;right:3%;top:20%;" id="music2" aria-hidden="true"onclick="music()"><audio src="image/色彩.mp3" autoplay="autoplay" id="music" ></audio></i>
+	<i class="fa fa-spin fa-music"style="float:right;position:absolute;right:3%;top:20%;color:green;" id="music2" aria-hidden="true"onclick="music()"><audio src="image/色彩.mp3" autoplay="autoplay" id="music" ></audio></i><i class="fa fa-refresh" aria-hidden="true" onclick="refresh()"></i>
   </div>
   <div class="lead">
 	<nav >
@@ -215,7 +218,7 @@
   <div class="letter">
 	<p>我是藤丸立香，被众多的人所救赎，也替众多的人站立于此，是迦勒底的Master。</p>
   </div>
-  <div class="use">
+  <div class="use" id="user">
   </div>
   <script>
   function win_close(){
@@ -238,6 +241,20 @@
 	else{
 		music.play();
 		music2.className="fa fa-spin fa-music";
+	}
+  }
+  var refresh1=1;
+  function refresh(){
+	var user=document.getElementById("user");
+	if(refresh1==1){
+	var src="image/tengwanlixiang2.png";
+	user.style.backgroundImage="url("+src+")";
+	refresh1=0;
+	}
+	else{
+	var src="image/tengwanlixiang.png";
+	user.style.backgroundImage="url("+src+")";
+	refresh1=1;
 	}
   }
   </script>
