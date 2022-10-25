@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+  <title>FGO</title>  <style>
+    *{
+	margin:0;
+	padding:0;
+	}
+	html,body{
+	width:100%;
+	height:100%;
+	}
+  	body:after{
+    content: '';
+    display: block;
+	background-size:over;
+    width: 50%;
+	height:100%;
+    position:fixed;
+    top: 0;
+    left:30%;
+    bottom: 0;
+	background-attachment:fixed;
+    background: url(D://EditPlus/资料/背景1.jpg);
+	background-repeat:no-repeat;
+    opacity: 0.5;
+	z-index:-1;
+	}
+	.search{
+	height:10%;
+	width:100%;
+    border:1px solid;
+	position:fixed;
+	background:#281f1d;
+	font-size:2em;
+	text-align:center;
+	color:white;
+	line-height:2em;
+	}
+	.lead{
+		width:25%;
+		min-height: 90%;
+		height:auto;
+		text-align:center;
+		line-height:3em;
+		display:inline-block;
+	}
+	nav{
+			border:1px solid;
+	width:25%;
+	height:100%;
+	position:fixed;
+	left:0;
+	top:10%;
+	background:#E0E0E0;
+	}
+	.ul{
+	margin:50px auto;
+	}
+	.li{
+	width:100%;
+	font-size:1.5em;
+	font-weight:600;
+	transition:0.3s;
+	color:#7B7B7B;
+	text-align:left;
+	}
+	.li:hover{
+	background:#BEBEBE;
+	}
+	.li .fa{
+	width:15%;
+	text-align:center;
+	margin-left:5%;
+	}
+	.li ul{
+	width:0;//80%;
+	height:600px;
+	padding:3% 0;
+	position:absolute;
+	top:0;
+	right:0;
+	overflow:hidden;
+	background-color:#ADADAD;
+	transition:0.3s;
+	}
+	.li ul li {
+	height:5%;
+	padding:5% 10%;
+	white-space:nowrap;
+	transition:0.3s;
+	margin:2% auto;
+	font-family:楷体;
+	color:white;
+	font-size:1.2em;
+	}
+	.li ul li:hover{
+	background:#7B7B7B;
+	}
+	.li ul li a{
+	font-size:1em;
+	text-decoration: none;
+	letter-spacing:3px;
+	color: #fff;
+	}
+	.li:hover ul{
+	width:80%;
+	}
+	.letter{
+	text-indent:2em;
+	display:inline-block;
+	text-align:left;
+	position:absolute;
+	top:30%;
+	margin-left:3%;
+	width:40%;
+	font-size:2em;
+	font-weight:bolder;
+	letter-spacing:3px;
+	font-family:楷体;
+	}
+	.use{
+	margin:5% auto;
+	width:40%;
+	height:90%;
+	float:right;
+	display:inline-block;
+	background:url(D://EditPlus/资料/tengwanlixiang.png);
+	background-size:100%;
+	}
+  </style>
+ </head>
+ <body>
+  <div class="search">
+	Fate Grand Order
+	<i class="fa fa-spin fa-music"style="float:right;position:absolute;right:3%;top:20%;" id="music2" aria-hidden="true"onclick="music()"><audio src="D://EditPlus/资料/色彩.mp3" autoplay="autoplay" id="music" ></audio></i>
+  </div>
+  <div class="lead">
+	<nav >
+		<ul class="ul">
+			<li class="li">
+			<i class="fa fa-th-list" aria-hidden="true"></i> 
+			Cosmos in the Lostbelt
+				<ul >
+					<li><a href="#">永恒冻土帝国</a></li>
+					<li><a href="#">无间冰焰世纪</a></li>
+					<li><a href="#">人智统合真国</a></li>
+					<li><a href="#">创世灭亡轮回</a></li>
+					<li><a href="#">神代巨神海洋</a></li>
+					<li><a href="#">星间都市山脉</a></li>
+					<li><a href="#">妖精圆桌领域</a></li>
+					<li><a href="#">黄金树海纪行</a></li>
+				</ul>
+			</li>
+		</ul>
+		<ul class="ul">
+			<li class="li">
+			<i class="fa fa-user" aria-hidden="true"></i> 
+			Use Account Number
+				<ul >
+					<li>御主：慕影相依</li>
+					<li>性别：男</li>
+					<li>Lv. 142/160</li>
+					<li>稀有魔力棱镜：9个</li>
+					<li>魔力棱镜：179个</li>
+					<li>量子:140,018,152</li>
+					<li>友情点数:368,062</li>
+				</ul>
+			</li>
+		</ul>
+		<ul class="ul">
+			<li class="li">
+			<i class="fa fa-heart" aria-hidden="true"></i>
+			Home
+				<ul>
+					<li>从者：631位</li>
+					<li>概念礼装：562件</li>
+					<li>指令纹章：199枚</li>
+					<li>First:2018/07/24</li>
+					<li>Last:2022/08/27</li>
+					<li>中意从者：尼禄</li>
+				</ul>
+			</li>
+		</ul>
+		<ul class="ul">
+			<li class="li">
+			<i class="fa fa-address-book" aria-hidden="true"></i>
+			Address-book
+				<ul >
+					<li><i class="fa fa-address-book-o" aria-hidden="true"></i>玛修</li>
+					<li><i class="fa fa-address-book-o" aria-hidden="true"></i>戈尔德鲁夫所长</li>
+					<li><i class="fa fa-address-book-o" aria-hidden="true"></i>达芬奇（小）</li>
+					<li><i class="fa fa-address-book-o" aria-hidden="true"></i>福尔摩斯</li>
+					<li style="color:#3C3C3C"><i class="fa fa-address-book-o" aria-hidden="true"></i>达芬奇（大）</li>
+					<li style="color:#3C3C3C"><i class="fa fa-address-book-o" aria-hidden="true"></i>Dr.罗曼</li>
+				</ul>
+			</li>
+		</ul>
+		<ul class="ul">
+			<li class="li">
+			<i class="fa fa-spin fa-cog" aria-hidden="true"></i>
+			Install
+				<ul >
+					<li onclick="show()"><i class="fa fa-lock" aria-hidden="true"></i>更换账号</li>
+					<li onclick="show()"><i class="fa fa-lock" aria-hidden="true"></i>注销账号</li>
+					<li onclick="win_close()"><i class="fa fa-reply" aria-hidden="true"></i>退出网页</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+  </div>
+  <div class="letter">
+	<p>我是藤丸立香，被众多的人所救赎，也替众多的人站立于此，是迦勒底的Master。</p>
+  </div>
+  <div class="use">
+  </div>
+  <script>
+  function win_close(){
+	if(confirm("确定要离开本网页吗？")){
+		window.opener=null;
+        window.open('','_self');
+        window.close();
+	}
+  }
+  function show(){
+	alert("该功能已被管理员上锁！");
+  }
+  function music(){
+	var music=document.getElementById("music");
+	var music2=document.getElementById("music2");
+	if(!music.paused){
+		music.pause();
+		music2.className="fa fa-music";
+	}
+	else{
+		music.play();
+		music2.className="fa fa-spin fa-music";
+	}
+  }
+  </script>
+ </body>
+</html>
