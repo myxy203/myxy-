@@ -140,6 +140,7 @@
   <div class="search">
 	Fate Grand Order
 	<i class="fa fa-spin fa-music"style="float:right;position:absolute;right:3%;top:20%;color:green;" id="music2" aria-hidden="true"onclick="music()"><audio src="image/色彩.mp3" autoplay="autoplay" id="music" ></audio></i><i class="fa fa-refresh" aria-hidden="true" onclick="refresh()"></i>
+	  <i class="fa fa-refresh" aria-hidden="true" onclick="refresh()"></i>
   </div>
   <div class="lead">
 	<nav >
@@ -245,6 +246,19 @@
   }
   var refresh1=1;
   function refresh(){
+	var user=document.getElementById("user");
+	if(refresh1==1){
+	var src="image/tengwanlixiang2.png";
+	user.style.backgroundImage="url("+src+")";
+	refresh1=0;
+	}
+	else{
+	var src="image/tengwanlixiang.png";
+	user.style.backgroundImage="url("+src+")";
+	refresh1=1;
+	}
+  }
+	   function refresh(){
 	var user=document.getElementById("user");
 	if(refresh1==1){
 	var src="image/tengwanlixiang2.png";
