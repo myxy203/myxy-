@@ -38,6 +38,14 @@
 	}
 	.code{
 	display:none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 70px;
+	height:auto;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+	.up3:hover .code{
+	display:block;
 	}
 	.main{
 	width:60%;
@@ -101,7 +109,7 @@
 			<td>第一周</td>
 			<td><a href="https://myxy203.github.io/the%20two%20week.html" id="2">第二周</a></td>
 			<td><a href="https://myxy203.github.io/the%20three%20week.html" id="3">第三周</a></td>
-			<td><a href="https://myxy203.github.io/the%20four%20week.html" id="4">第四周</a></td><td>第五周</td><td>第六周</td><td>第七周</td><td>第八周</td>
+			<td><a href="https://myxy203.github.io/the%20four%20week.html" id="4">第四周</td><td>第五周</td><td>第六周</td><td>第七周</td><td>第八周</td>
 			</tr>
 			<tr>
 			<td>第九周</td><td>第十周</td><td>第十一周</td><td>第十二周</td><td>第十三周</td><td>第十四周</td><td>第十五周</td><td>第十六周</td>
@@ -124,7 +132,7 @@
 		</div>
 		<div class="up3"style="border:1px solid;border-radius:20px;width:10%;font-size:1.5em;margin:1%;height:60%;text-align:center;line-height:200%;font-weight:bolder;display:inline-block;">网页信息
 			<div class="code">
-				<img src="image/QrCard.png">
+				<img src="image/QrCard.png" style="width:70%;height:auto;" alt="QrCard">
 			</div>
 		</div>
 		<div id="time" style="float:right;font-size:2em;margin:1%;">
@@ -140,7 +148,7 @@
 		if(v==1){
 		alert("本网页为第一周作业更新版");
 		}
-		else if(v>1&&v<5){
+		else if(v>1&&v<4){
 		var v2=document.getElementById(v);
 		location.href=v2;
 		}
