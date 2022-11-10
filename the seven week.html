@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <title>第七周</title>
+  <style>
+  body{
+	cursor:pointer;
+	border:1px solid;
+	margin:0;
+	overflow:hidden;
+}
+	div{
+	width:10%;
+	height:10%;
+	border-radius:50%;
+	padding:0.5em;
+	display:block;
+	position:absolute;
+	background-color:rgba(0,0,0,0.5);
+	}
+	div p{
+	position:relative;
+	left:20%;
+	top:10%;
+	width:60%;
+	text-align:center;
+	opacity:1;
+	background:black;	color:red;
+	}
+  </style>
+  <script>
+  function Boom(name,goal){
+	this.name=name;
+	this.goal=goal;
+	this.vx=randV();
+	this.vy=randV();
+	this.dom=null;
+	function randV(){
+	var sign=Math.random()>0.5?-1:1;
+	return sign*Math.floor(Math.random()*9+1)
+	}
+	this.addDom=function(){
+	var div=document.createElement('div');
+	var p=document.createElement('p');
+	p.textContent=this.name+':'+this.goal;
+	div.appendChild(p);
+	div.style.left=window.innerWidth/2+'px';
+	div.style.top=window.innerHeight/2+'px';
+	this.dom=div;
+	document.body.appendChild(div);
+	};
+  }
+	var Num=[];
+	const NumNum=8;
+	var name,goal;
+	for(var i=0;i<NumNum;i++){
+	name="炸弹";
+	goal="qiuqiu";
+	Num[i]= new Boom(name,goal);
+	}
+  </script>
+ </head>
+ <body>
+ <h1>使用键盘wasd(不支持手机)加入炸弹家族吧，点击屏幕加大速度</h1>
+	<div id="a"><p>笨蛋</p></div>
+	<script>
+	var a=document.getElementById('a');
+	window.onload = function(){
+	document.onkeydown=function(e){
+	switch(e.keyCode){
+	case 65:
+		a.style.left=a.offsetLeft-15+"px";
+		break;
+	case 68:
+		a.style.left=a.offsetLeft+15+"px";
+		break;
+	case 83:
+		a.style.top=a.offsetTop+15+"px";
+		break;
+	case 87:
+		a.style.top=a.offsetTop-15+"px";
+		break;
+	default:
+		break;
+	}
+	}
+	}
+	for(var i=0;i<NumNum;i++){
+	Num[i].addDom();
+	}
+	document.body.style.width=window.innerWidth-2+"px";
+	document.body.style.height=window.innerHeight-2+"px";
+	document.body.onclick=function(){
+		setInterval(function(){
+		var a1=document.getElementById('a');
+		for(var i=0;i<NumNum;i++){
+		var numb=Num[i];
+		var x=parseInt(numb.dom.style.left);
+		var y=parseInt(numb.dom.style.top);
+		if(x<0||x>window.innerWidth*0.9){
+			numb.vx=-numb.vx;
+			}
+		if(y<0||y>window.innerHeight*0.9){
+			numb.vy=-numb.vy;
+			}
+		numb.dom.style.left=x+numb.vx+"px";
+		numb.dom.style.top=y+numb.vy+"px";
+		}
+		},50)
+	}
+	</script>
+ </body>
+</html>
