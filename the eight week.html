@@ -1,0 +1,138 @@
+String<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <title>第八周</title>
+    <style>
+        div{
+            margin:20px;
+            height:100px;
+            width:100px;
+            border:1px solid;
+            background:blue;
+            border-radius:50%;
+            margin:0;  position:absolute;
+            transition:all 0.5s ;
+        }
+        div p{
+            font-size:50px;
+            margin:auto;
+            padding:20%;
+            color:red;
+            text-shadow:2px 3px black;
+        }
+        .bd{
+            border-radius:0;
+            background:yellow;
+        }
+        .bd p{
+            color:black;
+            text-shadow:0 0;
+        }
+    </style>
+</head>
+<body style="width: 1536px; height: 714px;">
+<script>
+    var Balls=[];
+    var s=0;
+    const num=6;
+    const S = ['考生的信息，在这里显示。离离原上草，一岁一枯荣。' , '艳色天下重，西施宁久微。朝为越溪女，暮作吴宫妃。' , '绝代有佳人，幽居在空谷。自云良家子，零落依草木。','合昏尚知时，鸳鸯不独宿。但见新人笑，那闻旧人哭！'] ;
+    document.body.ondblclick=function(){
+        alert("ok");
+        for(let balls in Balls){
+            this.removeChild(balls.dom);
+        }
+        Balls=[];
+        s===S.length-1?s=0:s++;
+        for(var i=0;i<S[s].length;i++){
+            //x0,y0获取是否换行
+            var x0=i%num;//第几列
+            var y0=Math.floor(i/num);//第几行
+            var ball=new Ball(x0,y0);
+            ball.createDivDom(S[s][i]);
+            ball.randPosition();
+            Balls.push(ball);
+        }
+    };
+    var bodyWidth=window.innerWidth;
+    var bodyHeight=window.innerHeight;
+    document.body.style.width=bodyWidth+"px";
+    document.body.style.height=bodyHeight+"px";
+    var r = bodyWidth > bodyHeight ? bodyHeight/( num *3/2) : bodyWidth/(num*3/2) ;//根据页面宽高来调整位置
+    for (var i=0;i<S[s].length;i++){
+        var x0=i%num;
+        var y0=Math.floor(i/num);
+        var ball=new Ball(x0,y0);
+        ball.createDivDom(S[s][i]);
+        ball.randPosition();
+        Balls.push(ball);
+    }
+    document.body.onmousemove=function(){
+        for(var balls in Balls){
+            balls.setPosition();
+        }
+    };
+    document.body.onclick=function(){
+        alert("ok")
+        for(var balls in Balls){
+            balls.randPosition();
+        }
+    };
+    function Ball(x0,y0){
+        this.x0=x0;
+        this.y0=y0;
+        this.dom=null;
+        this.createDivDom=function(s){
+            var divDom=document.createElement("div");
+            var pDom=document.createElement("p");
+            pDom.textContent=s;
+            pDom.style.fontSize = r/2 + 'px' ;
+            divDom.style.width = divDom.style.height = r + 'px' ;
+            if(this.x0==5||this.y0==11){
+                divDom.className="bd";
+            }
+            divDom.appendChild(pDom);
+            document.body.appendChild(divDom);
+            this.dom=divDom;
+        }
+
+    this.randPosition=function (){
+        var x=Math.floor(Math.random()*bodyHeight);
+        var y=Math.floor(Math.random()*bodyHeight);
+        this.dom.left=x+"px";
+        this.dom.top=y+"px";
+    };
+    this.setPosition=function(){
+        var x = parseInt(this.x0) * r * 1.2 ;
+        var y = parseInt(this.y0) * r * 1.2 ;
+        this.dom.style.left = x + r + 'px' ;
+        this.dom.style.top = y + r + 'px' ;
+    }; };
+</script>
+<div style="left:30px;top:20px;"><p>考</p></div>
+<div style="left:180px;top:20px;"><p>生</p></div>
+<div style="left:330px;top:20px;"><p>的</p></div>
+<div style="left:480px;top:20px;"><p>信</p></div>
+<div style="left:630px;top:20px;"><p>息</p></div>
+<div class="bd"style="left:780px;top:20px;"><p>，</p></div>
+<div style="left:30px;top:140px;"><p>在</p></div>
+<div style="left:180px;top:140px;"><p>这</p></div>
+<div style="left:330px;top:140px;"><p>里</p></div>
+<div style="left:480px;top:140px;"><p>显</p></div>
+<div style="left:630px;top:140px;"><p>示</p></div>
+<div class="bd"style="left:780px;top:140px;"><p>。</p></div>
+<div style="left:30px;top:260px;"><p>离</p></div>
+<div style="left:180px;top:260px;"><p>离</p></div>
+<div style="left:330px;top:260px;"><p>原</p></div>
+<div style="left:480px;top:260px;"><p>上</p></div>
+<div style="left:630px;top:260px;"><p>草</p></div>
+<div class="bd"style="left:780px;top:260px;"><p>，</p></div>
+<div style="left:30px;top:380px;"><p>一</p></div>
+<div style="left:180px;top:380px;"><p>岁</p></div>
+<div style="left:330px;top:380px;"><p>一</p></div>
+<div style="left:480px;top:380px;"><p>枯</p></div>
+<div style="left:630px;top:380px;"><p>荣</p></div>
+<div class="bd"style="left:780px;top:380px;"><p>。</p></div>
+</body>
+</html>
