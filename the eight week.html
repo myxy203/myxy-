@@ -80,6 +80,39 @@
             }
             divDom.style.left=xa+'px';
             divDom.style.top=ya+'px';
+        });
+            document.body.addEventListener("touchmove", function(){
+            var xa=i*100;
+            var ya;
+            if (i>80&&i<91){
+                ya=200;
+                divDom.style.opacity='1';
+                divDom.style.background="cornflowerblue";
+                divDom.style.borderTopRightRadius="0";
+                divDom.style.borderTopLeftRadius="0";
+
+            }
+            else if (i>90){
+                divDom.style.opacity='1';
+                divDom.style.background="red";
+                divDom.style.color="cornflowerblue";
+                divDom.style.borderBottomRightRadius="0";
+                divDom.style.borderBottomLeftRadius="0";
+                ya=100;
+            }
+            else{
+
+                ya=300;
+            }
+            if (i>10){
+                var i1=i%10;
+                if (i1==0){
+                    i1=10;
+                }
+                xa=i1*100;
+            }
+            divDom.style.left=xa+'px';
+            divDom.style.top=ya+'px';
         })
          })(i);
         //数组顺序
